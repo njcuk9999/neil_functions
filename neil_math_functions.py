@@ -77,3 +77,48 @@ def chisquare(y1, y2, ey1):
     :return:
     """
     return np.sum(((y1 - y2) / ey1) ** 2)
+    
+
+def weighted_mean(x, ex, nanmean=True):
+    """
+    Work out the weighted mean of a distribution, weights are taken as the
+    inverse variance of the uncertainties (weights = 1/uncertainties^2)
+    :param x: numpy array, values
+    :param ex: numpy array, uncertainties on values (same length as values)
+    :return:
+    """
+    # mask out nan values
+    nanmask = np.isnan(x) & np.isnan(ex)
+    #work out the weights
+    weights = 1.0/ex[~nanmask]**2
+    #work out the sum of the weights
+    sumweights = np.nansum(weights)
+    #work out the weighted mean
+    wm = np.nansum(weights*x[~nanmask])/sumweights
+    #work out the uncertainty on the mean
+    ewm = np.sqrt(1/sumweights)
+    #return weighted mean and the uncertainy
+    return wm, ewm
+
+
+def polyval(p, x, ex):
+    """
+    Numpy polyval command with uncertainties propagated using:
+    
+        y = sum { p_n * x^(N-n) }
+        ey = sum { ((dy/dx_n)**2 + ex_n**2
+        
+    i.e. currently assumes no uncertainties in p
+    
+    :param p: array/list of floats, coefficient list (as in numpy.polyval)
+    :param x: array of floats, x values such that y = f(x) 
+    :param ex: array of floats, x uncertainties
+    :return: y and ey (propagated uncertainties in y)
+    """
+    p, x, ex = np.array(p), np.array(x), np.array(ex)
+    y, ey = np.zeros((2, len(x)))
+    N = len(p)-1
+    for n in range(len(p)):
+        y += p[n] * (x**(N-n))
+        ey2 += ((p[n] * (N-n) * (x**(N-n-1))) * ex)**2
+    return y, np.sqrt(ey)
