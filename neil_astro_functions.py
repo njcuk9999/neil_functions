@@ -17,11 +17,16 @@ def Mj_from_spt(x):
 
 
 def convert_numspt_to_stringspt(x):
-  """
-  Convert a numerical spectral type to a string spectral type (i.e. 0.0 --> M0.0)
-  :param x: numpy array of floats, numerical spectral types
-  :return: numpy array of strings, string spectral type
-  """
+    """
+    Convert a numerical spectral type to a string spectral type
+    i.e.
+         00.0 --> M0.0
+         18.0 --> L8.0
+        -01.0 --> K7.0
+        -18.0 --> G0.0
+    :param x: numpy array of floats, numerical spectral types
+    :return: numpy array of strings, string spectral type
+    """
     stringspt = []
     spectral_types = ['O', 'B', 'A', 'F', 'G', 'K', 'M', 'L', 'T', 'Y']
     lowerlimits = [-np.inf, -48.0, -38.0, -28.0, -18.0, -8.0, 0.0,
@@ -35,25 +40,30 @@ def convert_numspt_to_stringspt(x):
                 args = [spectral_types[j], x[i] + add_on[j]]
                 stringspt.append('{0}{1}'.format(*args))
     return np.array(stringspt)
-    
-    
+
+
 def convert_stringspt_to_numspt(x):
-  """
-  Convert a string spectral type to a numerical spectral type (i.e. M0.0 --> 0.0)
-  :param x: numpy array of strings, string spectral type 
-  :return: numpy array of floats, numerical spectral types
-  """
-    stringspt = []
+    """
+    Convert a string spectral type to a numerical spectral type
+    i.e.
+        M0.0 --> 0.0
+        L8.0 --> 18.0
+        K7.0 --> -1.0
+        G0.0 --> -18.0
+    :param x: numpy array of strings, string spectral type
+    :return: numpy array of floats, numerical spectral types
+    """
+    numspt = []
     spectral_types = ['O', 'B', 'A', 'F', 'G', 'K', 'M', 'L', 'T', 'Y']
-    lowerlimits = [-np.inf, -48.0, -38.0, -28.0, -18.0, -8.0, 0.0,
-                   10.0, 20.0, 30.0]
-    upperlimits = [-48.0, -38.0, -28.0, -18.0, -8.0, 0.0,
-                   10.0, 20.0, 30.0, np.inf]
     add_on = [58, 48, 38, 28, 18, 8, 0, -10, -20, -30]
     for i in range(len(x)):
         for j in range(len(spectral_types)):
-            if lowerlimits[j] <= x[i] < upperlimits[j]:
-                args = [spectral_types[j], x[i] + add_on[j]]
-                stringspt.append('{0}{1}'.format(*args))
-    return np.array(stringspt)
+            ss = spectral_types[j]
+            if ss in x[i]:
+                raw = x[i].split(ss)[-1]
+                try:
+                    numspt.append(float(raw) - add_on[j])
+                except ValueError:
+                    numspt.append(np.nan)
+    return np.array(numspt)
     
