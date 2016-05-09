@@ -119,7 +119,7 @@ def sigma2percentile(sigma):
     Percentile calculation from sigma
     i.e. 1 sigma == 0.68268949213708585 (68.27%)
     :param sigma: [float]     sigma value
-    :return:
+    :return percentile:  [float] the percentile (i.e. between 0.00 and 1.00)
     """
     # percentile = integral of exp{-0.5x**2}
     percentile = erf(sigma / sqrt2)
@@ -130,8 +130,8 @@ def percentile2sigma(percentile):
     """
     Sigma calcualtion from percentile
     i.e. 0.68268949213708585 (68.27%) == 1 sigma
-    :param percentile: [float]     percentile value
-    :return:
+    :param percentile: [float]     percentile value (i.e. between 0.00 and 1.00)
+    :return sigma:  [float] the sigma value (i.e. 1, 2, 3, 1.5)
     """
     # area = integral of exp{-0.5x**2}
     sigma = sqrt2 * erfinv(percentile)
