@@ -9,12 +9,15 @@ import numpy as np
 # =============================================================================
 def timestamp(types=None):
     """
-    ============================================================================
     Creates a timestamp string
-    ============================================================================
+    
+    :param types: integer, 0 1 or 2 see below:
+    
         mode 0: YYYY-MM-DD_HH-MM-SS    (Default)
         mode 1: HH:MM:SS 
         mode 2: YYYY/MM/DD
+    
+    :return today: string, timestamp in format above
     """
     now = datetime.datetime.now()
     if(types==1):
@@ -29,13 +32,12 @@ def timestamp(types=None):
 
 def makedirs(folder):
     """
-    ==========================================================================
-    Make dirs
-    ==========================================================================
     Checks whether plot folder, subfolder and subsubfolder exist and
     if not creates the folders and folder path needed 
     (warning try to create full path, so folder needs to be correct)
-    :param folder: 
+    
+    :param folder: string, location of folder to create
+
     """
     temp = folder.split('/')
     xlink, xlink1 = '', ''
