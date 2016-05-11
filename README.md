@@ -2,11 +2,13 @@
 Program containing a set of custom functions I regularly use in Python
 
 
-Description of functions:
+# Description of functions:
+
+# General functions:
 
 import neil_gen_functions.py
 
-timestamp(types=None):
+# timestamp(types=None):
 
           Creates a timestamp string
         
@@ -20,7 +22,7 @@ timestamp(types=None):
 
 
 
-makedirs(folder):
+# makedirs(folder):
           Checks whether plot folder, subfolder and subsubfolder exist and
           if not creates the folders and folder path needed 
           (warning try to create full path, so folder needs to be correct)
@@ -29,8 +31,7 @@ makedirs(folder):
 
 
 
-printcoeffs(p, f=2, xname='x', yname='f', formatx=None,
-                errorlower=None, errorupper=None):
+# printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None):
     prints a nice version of coefficients
     
     :param p: list of floats, coefficents as in numpy.polyval
