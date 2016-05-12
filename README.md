@@ -48,3 +48,19 @@ Program containing a set of custom functions I regularly use in Python
                                            error lower is not None assumes uncertainties are equal
                                            i.e. +/-
                                            error upper list must be same length as p
+                                           
+          # Math functions
+          
+                    rchisquared(x, y, ey, model, p):
+          
+                        Calculates the reduced chisquared value based on x and y and a model
+                        :param x: [numpy array] x axis data (data to base model on)
+                        :param y: [numpy array] y axis data (data to fit model to)
+                        :param ey: [numpy array] uncertainties in y axis data
+                        :param model: [function] function taking arguements x and *p
+                                                 i.e. lambda x, *p: p[0]*x + p[1]*x
+                        :param p: [list] list of parameters for model for a model with 2 fit
+                                         parameters p = [a, b] and function would require
+                                         x, a, b as arguments
+                        :return: reduced chi squared, degrees of freedom (N - n - 1)
+
