@@ -8,7 +8,7 @@ Program containing a set of custom functions I regularly use in Python
           
                     import neil_gen_functions.py
                     
-                    # timestamp(types=None):
+                    timestamp(types=None):
                     
                               Creates a timestamp string
                             
@@ -22,7 +22,7 @@ Program containing a set of custom functions I regularly use in Python
                     
                     
                     
-                    # makedirs(folder):
+                    makedirs(folder):
                               Checks whether plot folder, subfolder and subsubfolder exist and
                               if not creates the folders and folder path needed 
                               (warning try to create full path, so folder needs to be correct)
@@ -31,7 +31,7 @@ Program containing a set of custom functions I regularly use in Python
                     
                     
                     
-                    # printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None):
+                    printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None):
                         prints a nice version of coefficients
                         
                         :param p: list of floats, coefficents as in numpy.polyval
@@ -50,7 +50,18 @@ Program containing a set of custom functions I regularly use in Python
                                            error upper list must be same length as p
                                            
           # Math functions
-          
+
+                    interp1d(x, y):
+
+                        This is a easier to use spline interpolation
+                        call by using F = interp1d(oldx, oldy)
+                        use by using newy = F(oldy)
+                        :param x: array of floats, must be in numerical order for spline to function
+                        :param y: array of floats, y values such that y = f(x) to be mapped onto new x values (with a cubic spline)
+                        :return:
+
+
+
                     rchisquared(x, y, ey, model, p):
           
                         Calculates the reduced chisquared value based on x and y and a model
@@ -63,4 +74,21 @@ Program containing a set of custom functions I regularly use in Python
                                          parameters p = [a, b] and function would require
                                          x, a, b as arguments
                         :return: reduced chi squared, degrees of freedom (N - n - 1)
-
+                     
+                     
+                     
+                     polyval(p, x, ex):
+                     
+                        Numpy polyval command with uncertainties propagated using:
+                        
+                            y = sum { p_n * x^(N-n) }
+                            ey = sum { ((dy/dx_n)**2 + ex_n**2
+                            
+                        i.e. currently assumes no uncertainties in p
+                        
+                        :param p: array/list of floats, coefficient list (as in numpy.polyval)
+                        :param x: array of floats, x values such that y = f(x) 
+                        :param ex: array of floats, x uncertainties
+                        :return: y and ey (propagated uncertainties in y)
+                        
+                    
