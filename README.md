@@ -116,7 +116,7 @@ import neil_gen_functions.py
  
  
  
- #### polyval(p, x, ex):
+#### polyval(p, x, ex):
  
     Numpy polyval command with uncertainties propagated using:
     
