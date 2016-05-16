@@ -30,6 +30,93 @@ def timestamp(types=None):
     return today
     
 
+def percentage(it1, total, message, ptype=None):
+    """
+    ===========================================================================
+    Displays percentage bar
+    ===========================================================================
+    Displays a simple message followed by a updating percentage
+    bar, for use inside a loop, variables are as follows:
+
+     - Format:
+        percentage(it1, total, message, ptype)
+
+            it1 (INT) is the iteration number of the loops
+
+            total (INT) is the total number of iterations of the loop
+
+            message (STRING) is displayed as follows:
+                "[message] ...0%"
+                "[message] ...50%"
+                "[message] ...100%"
+
+            ptype (STRING) is the format in which to return the percentage.
+                Current accepted formats are:
+
+                'i'         - returns percentage in integer form
+
+                    message ...12%
+
+                'f0'         - returns percentage in integer form
+
+                    message ...12%
+
+                'f2'         - returns percentage to two decimal places
+
+                    message ...12.34%
+
+                'f4'         - returns percentage to four decimal places
+
+                    message ...12.3456%
+
+                'bar'      - returns a loading percentage bar:
+
+                    Loading =================================================
+
+                None/Other  - returns percentage to six decimal places
+    """
+    import sys as sys
+
+    percent = (float(it1) / float(total)) * 100.0
+    if ptype == 'i':
+        sys.stdout.write("\r" + message + "...%d%%" % percent)
+        sys.stdout.flush()
+    elif ptype == 'f0':
+        sys.stdout.write("\r" + message + "...%.0f%%" % percent)
+        sys.stdout.flush()
+    elif ptype == 'f2':
+        sys.stdout.write("\r" + message + "...%.2f%%" % percent)
+        sys.stdout.flush()
+    elif ptype == 'f4':
+        sys.stdout.write("\r" + message + "...%.4f%%" % percent)
+        sys.stdout.flush()
+    elif ptype == 'bar':
+        for j1 in range(1, 50):
+            if round(percent) == float(j1 * 2.0):
+                sys.stdout.write("\r" + "Loading (%.2f%%)" % percent + "=" * j1)
+                sys.stdout.flush()
+    else:
+        sys.stdout.write("\r" + message + "...%.6f%%" % percent)
+        sys.stdout.flush()
+
+
+def percentage2(i1, i2, t1, t2, message, ptype=None):
+    """
+    ===========================================================================
+    Displays percentage bar
+    ===========================================================================
+    Same as percentage except for a double for loop
+
+    i.e.     it1 = i2 + i1*t2 + 1
+
+             total = t1 * t2
+    """
+    it1 = i2 + i1 * t2 + 1
+    total = t1 * t2
+
+    percentage(it1, total, message, ptype=ptype)
+
+
 def makedirs(folder):
     """
     Checks whether plot folder, subfolder and subsubfolder exist and
