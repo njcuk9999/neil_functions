@@ -2,13 +2,13 @@
 Program containing a set of custom functions I regularly use in Python
 
 
-# Description of functions:
+## Description of functions:
 
-          # General functions:
+          ### General functions:
           
                     import neil_gen_functions.py
                     
-                    timestamp(types=None):
+                    #### timestamp(types=None):
                     
                               Creates a timestamp string
                             
@@ -20,9 +20,51 @@ Program containing a set of custom functions I regularly use in Python
                                     
                               :return today: string, timestamp in format above
                     
+                    #### percentage(it1, total, message, ptype=None):
+                        """
+                        ===========================================================================
+                        Displays percentage bar
+                        ===========================================================================
+                        Displays a simple message followed by a updating percentage
+                        bar, for use inside a loop, variables are as follows:
                     
+                         - Format:
+                            percentage(it1, total, message, ptype)
                     
-                    makedirs(folder):
+                                it1 (INT) is the iteration number of the loops
+                    
+                                total (INT) is the total number of iterations of the loop
+                    
+                                message (STRING) is displayed as follows:
+                                    "[message] ...0%"
+                                    "[message] ...50%"
+                                    "[message] ...100%"
+                    
+                                ptype (STRING) is the format in which to return the percentage.
+                                    Current accepted formats are:
+                    
+                                    'i'         - returns percentage in integer form
+                    
+                                        message ...12%
+                    
+                                    'f0'         - returns percentage in integer form
+                    
+                                        message ...12%
+                    
+                                    'f2'         - returns percentage to two decimal places
+                    
+                                        message ...12.34%
+                    
+                                    'f4'         - returns percentage to four decimal places
+                    
+                                        message ...12.3456%
+                    
+                                    'bar'      - returns a loading percentage bar:
+                    
+                                        Loading =================================================
+
+                    
+                    #### makedirs(folder):
                               Checks whether plot folder, subfolder and subsubfolder exist and
                               if not creates the folders and folder path needed 
                               (warning try to create full path, so folder needs to be correct)
@@ -31,7 +73,7 @@ Program containing a set of custom functions I regularly use in Python
                     
                     
                     
-                    printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None):
+                    #### printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None):
                         prints a nice version of coefficients
                         
                         :param p: list of floats, coefficents as in numpy.polyval
@@ -49,9 +91,9 @@ Program containing a set of custom functions I regularly use in Python
                                            i.e. +/-
                                            error upper list must be same length as p
                                            
-          # Math functions
+          ### Math functions
 
-                    interp1d(x, y):
+                    #### interp1d(x, y):
 
                         This is a easier to use spline interpolation
                         call by using F = interp1d(oldx, oldy)
@@ -62,7 +104,7 @@ Program containing a set of custom functions I regularly use in Python
 
 
 
-                    rchisquared(x, y, ey, model, p):
+                    #### rchisquared(x, y, ey, model, p):
           
                         Calculates the reduced chisquared value based on x and y and a model
                         :param x: [numpy array] x axis data (data to base model on)
@@ -77,7 +119,7 @@ Program containing a set of custom functions I regularly use in Python
                      
                      
                      
-                     polyval(p, x, ex):
+                     #### polyval(p, x, ex):
                      
                         Numpy polyval command with uncertainties propagated using:
                         
