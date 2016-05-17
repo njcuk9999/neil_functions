@@ -6,25 +6,25 @@ Program containing a set of custom functions I regularly use in Python
 
 ### General functions:
           
-import neil_gen_functions.py
+          import neil_gen_functions.py
                     
 #### timestamp(types=None):
-/**
+
           Creates a timestamp string
           
           :param types: integer, 0 1 or 2 see below:
           
-                > mode 0: YYYY-MM-DD_HH-MM-SS    (Default)
-                > mode 1: HH:MM:SS 
-                > mode 2: YYYY/MM/DD
+                mode 0: YYYY-MM-DD_HH-MM-SS    (Default)
+                mode 1: HH:MM:SS 
+                mode 2: YYYY/MM/DD
                 
           :return today: string, timestamp in format above
 
 #### percentage(it1, total, message, ptype=None):
-/**
+
           Displays a simple message followed by a updating percentage
           bar, for use inside a loop, variables are as follows:
-/**
+
                - Format:
                   percentage(it1, total, message, ptype)
 
@@ -131,3 +131,6 @@ import neil_gen_functions.py
     :return: y and ey (propagated uncertainties in y)
     
 
+### Stats functions
+
+### Astro functions
