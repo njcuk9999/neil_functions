@@ -135,9 +135,19 @@ Program containing a set of custom functions I regularly use in Python
 
 ### Astro functions
 
-Mj_from_spt(x):
+#### Mj_from_spt(x):
 
     Lepine Mj to SpT relationship (Lepine et al. 2013, Equation 23, page 24)
     :param x: numpy array, SpT
     :return:
 
+#### convert_numspt_to_stringspt(x):
+
+    Convert a numerical spectral type to a string spectral type
+    i.e.
+         00.0 --> M0.0
+         18.0 --> L8.0
+        -01.0 --> K7.0
+        -18.0 --> G0.0
+    :param x: numpy array of floats, numerical spectral types
+    :return: numpy array of strings, string spectral type
