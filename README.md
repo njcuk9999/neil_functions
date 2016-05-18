@@ -134,3 +134,10 @@ Program containing a set of custom functions I regularly use in Python
 ### Stats functions
 
 ### Astro functions
+
+Mj_from_spt(x):
+
+    Lepine Mj to SpT relationship (Lepine et al. 2013, Equation 23, page 24)
+    :param x: numpy array, SpT
+    :return:
+
