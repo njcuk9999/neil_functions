@@ -3,19 +3,19 @@ Program containing a set of custom functions I regularly use in Python
 
 # Table of contents
 
-* [General functions](#General-functions)
-  * [Timestamp function](#Timestamp-function)
-  * [Display percentage function](#Display-percentage-function)
-  * [Make directories function](#Make-directories-function)
-  * [Print coefficents function](#Print-coefficents-function)
-* [Math functions](#Math-functions)
-  * [One dimensional spline interpolator](#One-dimensional-spline-interpolator)
-  * [Reduced chi-squared function](#Reduced-chi-squared-function)
-  * [Polyval with propagated uncertainties](#Polyval-with-propagated-uncertainties)
-* [Stats functions](#Stats-functions)
-* [Astro functions](#Astro-functions)
-  * [Absolute J band from spectral type](#Absolute-J-band-from-spectral-type)
-  * [Convert numerical spectral type to string spectral type](#Convert-numerical-spectral-type-to-string-spectral-type)
+* [General functions](#general-functions)
+  * [Timestamp function](#timestamp-function)
+  * [Display percentage function](#display-percentage-function)
+  * [Make directories function](#make-directories-function)
+  * [Print coefficents function](#print-coefficents-function)
+* [Math functions](#math-functions)
+  * [One dimensional spline interpolator](#one-dimensional-spline-interpolator)
+  * [Reduced chi-squared function](#reduced-chi-squared-function)
+  * [Polyval with propagated uncertainties](#polyval-with-propagated-uncertainties)
+* [Stats functions](#stats-functions)
+* [Astro functions](#astro-functions)
+  * [Absolute J band from spectral type](#absolute-J-band-from-spectral-type)
+  * [Convert numerical spectral type to string spectral type](#convert-numerical-spectral-type-to-string-spectral-type)
 
 
 ## Description of functions:
