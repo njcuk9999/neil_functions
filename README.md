@@ -1,6 +1,11 @@
 # neil_functions
 Program containing a set of custom functions I regularly use in Python
 
+## Table of contents
+
+* [General functions](### General functions)
+  * [Timestamp function](#### timestamp function)
+
 
 ## Description of functions:
 
@@ -8,8 +13,10 @@ Program containing a set of custom functions I regularly use in Python
           
           import neil_gen_functions.py
                     
-#### timestamp(types=None):
-
+#### timestamp function
+```python
+timestamp(types=None):
+```
           Creates a timestamp string
           
           :param types: integer, 0 1 or 2 see below:
