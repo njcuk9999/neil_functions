@@ -1,5 +1,5 @@
 # neil_functions
-Program containing a set of custom functions I regularly use in Python
+Program containing a set of custom functions I regularly use in Python (Generalised for the use of everyone)
 
 # Table of contents
 
