@@ -23,22 +23,22 @@ Program containing a set of custom functions I regularly use in Python
 ### General functions:
 
 ```python
-import neil_gen_functions.py
+import neil_gen_functions
 ```
 
 #### Timestamp function
 ```python
 timestamp(types=None):
 ```
-  Creates a timestamp string
-  
-  :param types: integer, 0 1 or 2 see below:
-  
-        mode 0: YYYY-MM-DD_HH-MM-SS    (Default)
-        mode 1: HH:MM:SS 
-        mode 2: YYYY/MM/DD
-        
-  :return today: string, timestamp in format above
+Creates a timestamp string
+
+:param types: integer, 0 1 or 2 see below:
+
+      mode 0: YYYY-MM-DD_HH-MM-SS    (Default)
+      mode 1: HH:MM:SS 
+      mode 2: YYYY/MM/DD
+      
+:return today: string, timestamp in format above
 
 #### Display percentage function
 ```python
@@ -80,21 +80,21 @@ percentage(it1, total, message, ptype=None):
 
           'bar'      - returns a loading percentage bar:
 
-              Loading =================================================
+           Loading =================================================
 
 #### Make directories function
 ```python
-makedirs(folder):
+makedirs(folder)
 ```
-          Checks whether plot folder, subfolder and subsubfolder exist and
-          if not creates the folders and folder path needed 
-          (warning try to create full path, so folder needs to be correct)
-          
-          :param folder: string, location of folder to create
+   Checks whether plot folder, subfolder and subsubfolder exist and
+   if not creates the folders and folder path needed 
+   (warning try to create full path, so folder needs to be correct)
+   
+   :param folder: string, location of folder to create
 
 #### Print coefficents function 
 ```python
-printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None):
+printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None)
 ```
     prints a nice version of coefficients
     
@@ -115,9 +115,13 @@ printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorup
                        
 ### Math functions
 
+```python
+import neil_math_functions
+```
+
 #### One dimensional spline interpolator 
 ```python
-interp1d(x, y):
+interp1d(x, y)
 ```
     This is a easier to use spline interpolation
     call by using F = interp1d(oldx, oldy)
@@ -128,7 +132,7 @@ interp1d(x, y):
 
 #### Reduced chi-squared function
 ```python
-rchisquared(x, y, ey, model, p):
+rchisquared(x, y, ey, model, p)
 ```
     Calculates the reduced chisquared value based on x and y and a model
     :param x: [numpy array] x axis data (data to base model on)
@@ -143,7 +147,7 @@ rchisquared(x, y, ey, model, p):
  
 #### Polyval with propagated uncertainties 
 ```python
-polyval(p, x, ex):
+polyval(p, x, ex)
 ```
     Numpy polyval command with uncertainties propagated using:
     
@@ -159,11 +163,19 @@ polyval(p, x, ex):
     
 ### Stats functions
 
+```python
+import stats_functions
+```
+
 ### Astro functions
+
+```python
+import neil_astro_functions
+```
 
 #### Absolute J band from spectral type 
 ```python
-Mj_from_spt(x):
+Mj_from_spt(x)
 ```
     Lepine Mj to SpT relationship (Lepine et al. 2013, Equation 23, page 24)
     :param x: numpy array, SpT
@@ -171,7 +183,7 @@ Mj_from_spt(x):
 
 #### Convert numerical spectral type to string spectral type
 ```python
-convert_numspt_to_stringspt(x):
+convert_numspt_to_stringspt(x)
 ```
     Convert a numerical spectral type to a string spectral type
     i.e.
