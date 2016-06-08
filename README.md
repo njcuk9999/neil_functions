@@ -1,83 +1,101 @@
 # neil_functions
 Program containing a set of custom functions I regularly use in Python
 
-## Table of contents
+# Table of contents
 
 * [General functions](#General-functions)
-  * [Timestamp function](#timestamp-function)
+  * [Timestamp function](#Timestamp-function)
+  * [Display percentage function](#Display-percentage-function)
+  * [Make directories function](#Make-directories-function)
+  * [Print coefficents function](#Print-coefficents-function)
+* [Math functions](#Math-functions)
+  * [One dimensional spline interpolator](#One-dimensional-spline-interpolator)
+  * [Reduced chi-squared function](#Reduced-chi-squared-function)
+  * [Polyval with propagated uncertainties](#Polyval-with-propagated-uncertainties)
+* [Stats functions](#Stats-functions)
+* [Astro functions](#Astro-functions)
+  * [Absolute J band from spectral type](#Absolute-J-band-from-spectral-type)
+  * [Convert numerical spectral type to string spectral type](#Convert-numerical-spectral-type-to-string-spectral-type)
 
 
 ## Description of functions:
 
 ### General functions:
-          
-          import neil_gen_functions.py
-                    
-#### timestamp function
+
+```python
+import neil_gen_functions.py
+```
+
+#### Timestamp function
 ```python
 timestamp(types=None):
 ```
-          Creates a timestamp string
-          
-          :param types: integer, 0 1 or 2 see below:
-          
-                mode 0: YYYY-MM-DD_HH-MM-SS    (Default)
-                mode 1: HH:MM:SS 
-                mode 2: YYYY/MM/DD
-                
-          :return today: string, timestamp in format above
+  Creates a timestamp string
+  
+  :param types: integer, 0 1 or 2 see below:
+  
+        mode 0: YYYY-MM-DD_HH-MM-SS    (Default)
+        mode 1: HH:MM:SS 
+        mode 2: YYYY/MM/DD
+        
+  :return today: string, timestamp in format above
 
-#### percentage(it1, total, message, ptype=None):
+#### Display percentage function
+```python
+percentage(it1, total, message, ptype=None):
+```
+   Displays a simple message followed by a updating percentage
+    bar, for use inside a loop, variables are as follows:
 
-          Displays a simple message followed by a updating percentage
-          bar, for use inside a loop, variables are as follows:
+         - Format:
+            percentage(it1, total, message, ptype)
 
-               - Format:
-                  percentage(it1, total, message, ptype)
+      it1 (INT) is the iteration number of the loops
 
-            it1 (INT) is the iteration number of the loops
+      total (INT) is the total number of iterations of the loop
 
-            total (INT) is the total number of iterations of the loop
+      message (STRING) is displayed as follows:
+          "[message] ...0%"
+          "[message] ...50%"
+          "[message] ...100%"
 
-            message (STRING) is displayed as follows:
-                "[message] ...0%"
-                "[message] ...50%"
-                "[message] ...100%"
+      ptype (STRING) is the format in which to return the percentage.
+          Current accepted formats are:
 
-            ptype (STRING) is the format in which to return the percentage.
-                Current accepted formats are:
+          'i'         - returns percentage in integer form
 
-                'i'         - returns percentage in integer form
+              message ...12%
 
-                    message ...12%
+          'f0'         - returns percentage in integer form
 
-                'f0'         - returns percentage in integer form
+              message ...12%
 
-                    message ...12%
+          'f2'         - returns percentage to two decimal places
 
-                'f2'         - returns percentage to two decimal places
+              message ...12.34%
 
-                    message ...12.34%
+          'f4'         - returns percentage to four decimal places
 
-                'f4'         - returns percentage to four decimal places
+              message ...12.3456%
 
-                    message ...12.3456%
+          'bar'      - returns a loading percentage bar:
 
-                'bar'      - returns a loading percentage bar:
+              Loading =================================================
 
-                    Loading =================================================
-
-
-#### makedirs(folder):
+#### Make directories function
+```python
+makedirs(folder):
+```
           Checks whether plot folder, subfolder and subsubfolder exist and
           if not creates the folders and folder path needed 
           (warning try to create full path, so folder needs to be correct)
           
           :param folder: string, location of folder to create
 
-
-
-#### printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None):
+#### Print coefficents function 
+```python
+printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorupper=None):
+```
     prints a nice version of coefficients
     
     :param p: list of floats, coefficents as in numpy.polyval
@@ -97,8 +115,10 @@ timestamp(types=None):
                        
 ### Math functions
 
-#### interp1d(x, y):
-
+#### One dimensional spline interpolator 
+```python
+interp1d(x, y):
+```
     This is a easier to use spline interpolation
     call by using F = interp1d(oldx, oldy)
     use by using newy = F(oldy)
@@ -106,10 +126,10 @@ timestamp(types=None):
     :param y: array of floats, y values such that y = f(x) to be mapped onto new x values (with a cubic spline)
     :return:
 
-
-
-#### rchisquared(x, y, ey, model, p):
-
+#### Reduced chi-squared function
+```python
+rchisquared(x, y, ey, model, p):
+```
     Calculates the reduced chisquared value based on x and y and a model
     :param x: [numpy array] x axis data (data to base model on)
     :param y: [numpy array] y axis data (data to fit model to)
@@ -121,10 +141,10 @@ timestamp(types=None):
                      x, a, b as arguments
     :return: reduced chi squared, degrees of freedom (N - n - 1)
  
- 
- 
-#### polyval(p, x, ex):
- 
+#### Polyval with propagated uncertainties 
+```python
+polyval(p, x, ex):
+```
     Numpy polyval command with uncertainties propagated using:
     
         y = sum { p_n * x^(N-n) }
@@ -137,19 +157,22 @@ timestamp(types=None):
     :param ex: array of floats, x uncertainties
     :return: y and ey (propagated uncertainties in y)
     
-
 ### Stats functions
 
 ### Astro functions
 
-#### Mj_from_spt(x):
-
+#### Absolute J band from spectral type 
+```python
+Mj_from_spt(x):
+```
     Lepine Mj to SpT relationship (Lepine et al. 2013, Equation 23, page 24)
     :param x: numpy array, SpT
     :return:
 
-#### convert_numspt_to_stringspt(x):
-
+#### Convert numerical spectral type to string spectral type
+```python
+convert_numspt_to_stringspt(x):
+```
     Convert a numerical spectral type to a string spectral type
     i.e.
          00.0 --> M0.0
