@@ -3,8 +3,8 @@ Program containing a set of custom functions I regularly use in Python
 
 ## Table of contents
 
-* [General functions](### General functions)
-  * [Timestamp function](#### timestamp function)
+* [General functions](#General-functions)
+  * [Timestamp function](#timestamp-function)
 
 
 ## Description of functions:
