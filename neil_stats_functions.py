@@ -1,4 +1,6 @@
 import numpy as np
+from scipy.special import erf, erfinv
+
 
 # =============================================================================
 # Define variables
