@@ -167,6 +167,100 @@ polyval(p, x, ex)
 import stats_functions
 ```
 
+#### Gaussian variants
+
+```python
+gaussian1d_variant1(x, *p):
+```
+
+    Create a normalised gaussian (Area == 1) from mean and variance
+
+    :param x: [numpy array]    x axis data (array/list)
+    :param p: [Tuple]         (mean , variance)
+
+    Area of gaussian is 1  --> A = 1/(c*sqrt(2pi))
+
+    Returns a Gaussian array one value for each x value
+
+```python
+gaussian1d_variant2(x, *p):
+```
+
+    Create a gaussian from amplitude, mean and variance
+
+    :param x: [numpy array]    x axis data (array/list)
+    :param p: [Tuple]         (a = amplitude, b = mean , c = variance)
+
+    Returns a Gaussian array one value for each x value
+
+#### 2D Gaussian variants
+
+```python
+gaussian2d_variant1(x, y, *p):
+```
+
+    Create a 2D gaussian from amplitude, mean x, variance x, mean y and
+    variance y
+
+    :param x: [numpy array]    x axis data (array/list)
+    :param y: [numpy array]    y axis data (array/list)
+    :param p: [Tuple]         (amplitude, mean x, variance x,
+                               mean y, variance y)
+
+    Returns a Gaussian array one value for each x value
+
+```python
+gaussian2d_variant2(x, y, *p, **kwargs):
+```
+
+    Create a 2D gaussian from amplitude, mean x, variance x, mean y and
+    variance y and a rotation angle theta (0.0 == x-axis) where theta is in
+    degrees unless keyword units = radians or rad
+
+
+    :param x: [numpy array]    x axis data (array/list)
+    :param y: [numpy array]    y axis data (array/list)
+    :param p: [Tuple]         (amplitude, mean x, variance x,
+                               mean y, variance y, theta)
+    :param kwargs:             keyword arguments i.e. units = "deg"
+    keywords args are as follows:
+        - units:               string either deg or rad
+
+    Returns a Gaussian array one value for each x value
+
+```python
+gaussian2d_variant3(x, y, *p):
+```
+
+    Standard Gaussian function Creator
+    :param x: [numpy array]    x axis data (array/list)
+    :param y: [numpy array]    y axis data (array/list)
+    :param p: [Tuple]         (amplitude, mean x, mean y, a, b, c)
+
+    Returns a Gaussian array one value for each x value
+
+#### sigma to from percentile functions
+
+```python
+sigma2percentile(sigma):
+```
+
+    Percentile calculation from sigma
+    i.e. 1 sigma == 0.68268949213708585 (68.27%)
+    :param sigma: [float]     sigma value
+    :return percentile:  [float] the percentile (i.e. between 0.00 and 1.00)
+
+
+```python
+percentile2sigma(percentile):
+```
+
+    Sigma calcualtion from percentile
+    i.e. 0.68268949213708585 (68.27%) == 1 sigma
+    :param percentile: [float]     percentile value (i.e. between 0.00 and 1.00)
+    :return sigma:  [float] the sigma value (i.e. 1, 2, 3, 1.5)
+    
+
 ### Astro functions
 
 ```python
