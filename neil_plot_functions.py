@@ -1305,7 +1305,7 @@ if __name__ == '__main__':
     ev, evj = 0.1*np.sqrt(v), 0.1*np.sqrt(vj)
     clevels = [2, 5, 10, 50]
     vc = np.random.normal(15, 2, size=100)
-    vjc = np.random.normal(4.0, 1.0, size=100)
+    vjc = np.random.normal(4.00, 1.00, size=100)
     numspt = np.random.choice(range(-60, 30) + range(0, 10)*5, size=100)
     lumspt = np.random.choice([-100, 0, 0, 0, 0, 0, 0, 100], size=100)
     binaryflag = np.random.choice([True, False], size=100)
