@@ -20,8 +20,6 @@ Program containing a set of custom functions I regularly use in Python (Generali
   * [Absolute J band from spectral type](#absolute-J-band-from-spectral-type)
   * [Convert numerical spectral type to string spectral type](#convert-numerical-spectral-type-to-string-spectral-type)
 * [Plot functions](#plot-functions)
-  * [Contour cut plot](#contour-cut-plot)
-    * [Example code](#example-code)
 
 ## Description of functions:
 
