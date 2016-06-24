@@ -29,6 +29,8 @@ Program containing a set of custom functions I regularly use in Python (Generali
 import neil_gen_functions
 ```
 
+[Back to top](#neil_functions)
+
 #### Timestamp function
 ```python
 timestamp(types=None):
@@ -42,6 +44,8 @@ Creates a timestamp string
       mode 2: YYYY/MM/DD
       
 :return today: string, timestamp in format above
+
+[Back to top](#neil_functions)
 
 #### Display percentage function
 ```python
@@ -85,6 +89,8 @@ percentage(it1, total, message, ptype=None):
 
            Loading =================================================
 
+[Back to top](#neil_functions)
+
 #### Make directories function
 ```python
 makedirs(folder)
@@ -94,6 +100,8 @@ makedirs(folder)
    (warning try to create full path, so folder needs to be correct)
    
    :param folder: string, location of folder to create
+
+[Back to top](#neil_functions)
 
 #### Print coefficents function 
 ```python
@@ -115,7 +123,9 @@ printcoeffs(p, f=2, xname='x', yname='f', formatx=None, errorlower=None, errorup
                        error lower is not None assumes uncertainties are equal
                        i.e. +/-
                        error upper list must be same length as p
-                       
+
+[Back to top](#neil_functions)
+
 ### Math functions
 
 ```python
@@ -133,6 +143,8 @@ interp1d(x, y)
     :param y: array of floats, y values such that y = f(x) to be mapped onto new x values (with a cubic spline)
     :return:
 
+[Back to top](#neil_functions)
+
 #### Reduced chi-squared function
 ```python
 rchisquared(x, y, ey, model, p)
@@ -147,7 +159,9 @@ rchisquared(x, y, ey, model, p)
                      parameters p = [a, b] and function would require
                      x, a, b as arguments
     :return: reduced chi squared, degrees of freedom (N - n - 1)
- 
+
+[Back to top](#neil_functions)
+
 #### Polyval with propagated uncertainties 
 ```python
 polyval(p, x, ex)
@@ -163,7 +177,9 @@ polyval(p, x, ex)
     :param x: array of floats, x values such that y = f(x) 
     :param ex: array of floats, x uncertainties
     :return: y and ey (propagated uncertainties in y)
-    
+
+[Back to top](#neil_functions)
+
 ### Stats functions
 
 ```python
@@ -195,6 +211,9 @@ gaussian1d_variant2(x, *p):
     :param p: [Tuple]         (a = amplitude, b = mean , c = variance)
 
     Returns a Gaussian array one value for each x value
+
+
+[Back to top](#neil_functions)
 
 #### 2D Gaussian variants
 
@@ -242,6 +261,8 @@ gaussian2d_variant3(x, y, *p):
 
     Returns a Gaussian array one value for each x value
 
+[Back to top](#neil_functions)
+
 #### sigma to from percentile functions
 
 ```python
@@ -263,6 +284,7 @@ percentile2sigma(percentile):
     :param percentile: [float]     percentile value (i.e. between 0.00 and 1.00)
     :return sigma:  [float] the sigma value (i.e. 1, 2, 3, 1.5)
     
+[Back to top](#neil_functions)
 
 ### Astro functions
 
@@ -278,6 +300,8 @@ Mj_from_spt(x)
     :param x: numpy array, SpT
     :return:
 
+[Back to top](#neil_functions)
+
 #### Convert numerical spectral type to string spectral type
 ```python
 convert_numspt_to_stringspt(x)
@@ -291,6 +315,7 @@ convert_numspt_to_stringspt(x)
     :param x: numpy array of floats, numerical spectral types
     :return: numpy array of strings, string spectral type
 
+[Back to top](#neil_functions)
 
 ### Plot functions
 
@@ -298,6 +323,7 @@ convert_numspt_to_stringspt(x)
 import neil_plot_functions
 ```
 
+[Back to top](#neil_functions)
 
 
 
